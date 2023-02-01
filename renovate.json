@@ -2,7 +2,7 @@
   "extends": ["config:base"],
   "rangeStrategy": "pin",
   "baseBranches": ["dependencies/auto-update"],
-  "schedule": ["0 0 1 * *"],
+  "schedule": ["evert month"],
   "packageRules": [
     {
       "updateTypes": ["minor", "patch", "pin", "digest"],
