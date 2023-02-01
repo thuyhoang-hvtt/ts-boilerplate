@@ -1,6 +1,31 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
+  "extends": ["config:base"],
+  "rangeStrategy": "pin",
+  "baseBranches": ["dependencies/auto-update"],
+  "schedule": ["0 0 1 * *"],
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "groupName": "node",
+      "matchPackageNames": ["node"],
+      "enabled": false
+    },
+    {
+      "groupName": "tslint",
+      "matchPackageNames": ["tslint"],
+      "allowedVersions": "<= 5.14.0"
+    },
+    {
+      "groupName": "typescript-eslint",
+      "matchPackagePatterns": "@typescript-eslint/*"
+    },
+    {
+      "groupName": "typeorm",
+      "matchPackageNames": ["typeorm"],
+      "allowedVersions": "<= 0.2.45"
+    }
   ]
 }
