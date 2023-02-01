@@ -1,0 +1,27 @@
+version: '3.9'
+name: '<INPUT HERE>'
+
+services:
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: <INPUT HERE>
+    ports:
+      - '<INPUT HERE>:3306'
+    networks:
+      - <INPUT HERE>
+  redis:
+    image: redis:7.0.0
+    command: /bin/sh -c "redis-server --requirepass $$REDIS_PASSWORD"
+    env_file:
+      - .env
+    ports:
+      - '<INPUT HERE>:6379'
+    networks:
+      - <INPUT HERE>
+
+networks:
+  <INPUT HERE>:
+    driver: bridge
